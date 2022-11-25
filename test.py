@@ -21,8 +21,7 @@ if os.path.exists("dataset.csv"):
 
 if choice == "Upload": 
     st.title("Upload")
-    file = st.file_uploader("Upload Your Dataset")
-    if file: 
+    if file := st.file_uploader("Upload Your Dataset"):
         df = pd.read_csv(file, index_col=None)
         df.to_csv("dataset.csv", index=None)
         st.dataframe(df)
